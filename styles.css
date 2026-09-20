@@ -1,0 +1,126 @@
+/* =========================================================
+   styles.css — one shared stylesheet linked by all 4 pages.
+   Editing here updates every page at once (that's why the CSS
+   is external now instead of pasted into each file).
+   ========================================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;   /* sans-serif per lecture */
+  color: #222;
+  line-height: 1.5;
+  background: #e9ecef;
+}
+
+a { color: #0645ad; }
+a:visited { color: #663a82; }
+
+.page {
+  max-width: 1100px;
+  margin: 24px auto;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+/* ---- HEADER: logo (top-left, links home) + tagline ---- */
+header {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  border-bottom: 3px solid #C8102E;   /* ISU cardinal */
+}
+.logo {
+  display: flex; align-items: center;
+  padding: 20px 24px;
+  font-size: 26px; font-weight: bold;
+  color: #C8102E; text-decoration: none;
+}
+.logo:visited { color: #C8102E; }
+.tagline {
+  display: flex; align-items: center;
+  padding: 20px 24px;
+  background: #f7f7f7; color: #555; font-size: 15px;
+}
+
+/* ---- PRIMARY NAV (identical on every page) ---- */
+nav.primary { background: #C8102E; }
+nav.primary ul { list-style: none; display: flex; }
+nav.primary a {
+  display: block;
+  padding: 12px 22px;
+  color: #fff; text-decoration: none;
+  font-weight: bold; font-size: 15px;
+  transition: background 0.15s;
+}
+nav.primary a:visited { color: #fff; }
+nav.primary a:hover { background: #a00d26; }        /* hover state (required) */
+nav.primary a.active { background: #7a0a1d; }        /* marks current page */
+
+/* ---- MAIN LAYOUT ---- */
+.main {
+  display: grid;
+  grid-template-columns: 180px 1fr 220px;
+}
+.sidebar-left {
+  padding: 24px 20px; border-right: 1px solid #eee; font-size: 14px;
+}
+.sidebar-left h3 { font-size: 13px; color: #888; margin-bottom: 10px; }
+.sidebar-left ul { list-style: none; }
+.sidebar-left li { margin-bottom: 8px; }
+
+.content { padding: 32px 40px; }
+
+.sidebar-right {
+  padding: 24px 20px; border-left: 1px solid #eee;
+  background: #fafafa; font-size: 14px;
+}
+.sidebar-right h3 { font-size: 13px; color: #888; margin-bottom: 10px; }
+.sidebar-right ul { list-style: none; }
+.sidebar-right li { margin-bottom: 8px; }
+
+/* ---- CONTENT TYPE ---- */
+.hero h1 { font-size: 40px; margin-bottom: 6px; }
+.hero p  { font-size: 18px; color: #555; margin-bottom: 40px; }
+
+section { margin-bottom: 40px; scroll-margin-top: 20px; }
+section h2 {
+  font-size: 24px; color: #C8102E;
+  border-bottom: 2px solid #eee; padding-bottom: 6px; margin-bottom: 14px;
+}
+section p { max-width: 65ch; margin-bottom: 12px; }
+
+/* ---- PROJECT CARDS (portfolio page) ---- */
+.project {
+  border: 1px solid #ddd; border-radius: 6px;
+  padding: 18px 20px; margin-bottom: 16px;
+}
+.project h3 { margin-bottom: 6px; }
+.project p { color: #555; }
+
+/* ---- BUTTON + FORM ---- */
+.btn {
+  display: inline-block;
+  background: #C8102E; color: #fff !important;
+  padding: 10px 20px; border-radius: 4px;
+  text-decoration: none; font-weight: bold;
+  transition: background 0.15s;
+}
+.btn:hover { background: #a00d26; }
+.form-embed {
+  width: 100%; min-height: 780px; border: none;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  border-top: 1px solid #ccc; background: #f7f7f7;
+  padding: 20px 40px; font-size: 14px; color: #555;
+}
+footer ul { list-style: none; display: flex; gap: 18px; margin: 10px 0; flex-wrap: wrap; }
+footer a { text-decoration: none; }
+
+/* ---- RESPONSIVE (required: media query) ---- */
+@media (max-width: 800px) {
+  header { grid-template-columns: 1fr; }
+  .main { grid-template-columns: 1fr; }
+  nav.primary ul { flex-wrap: wrap; }
+}
